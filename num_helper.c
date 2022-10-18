@@ -1,4 +1,4 @@
-#include "headfun.h"
+#include "main.h"
 
 /**
  * print_num - prints a number send to this function

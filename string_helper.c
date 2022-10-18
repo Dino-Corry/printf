@@ -1,4 +1,4 @@
-#include "headfun.h"
+#include "main.h"
 
 /**
  * reverse_string - reverses a string in place
