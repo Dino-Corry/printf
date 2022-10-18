@@ -35,7 +35,9 @@ see example below:
 #include <stdio.h>
 #include "main.h"
 
+
 int main(void)
+
 {
     int i = 10;
     int print;
@@ -44,10 +46,13 @@ int main(void)
      print =  _printf("%d", s); /* get number of characters */
      printf("%d\n", print); /* print number of characters */
     return 0;
+    
 }
+
 
 License
 GNU General Public License v3.0
 
+
 Copyright
-Copyright (c) 2021 Dino Corry
+Copyright (c) 2022 Dino Corry
