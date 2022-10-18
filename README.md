@@ -10,8 +10,11 @@ _printf() functiion formats and prints data to the standard output according to 
 The function has the following conversion specifies:
 
 %c - prints a character
+
 %d - prints a decimal integer
+
 %s - prints a string
+
 %i - prints an integer
 
 
