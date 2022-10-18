@@ -65,4 +65,4 @@ char *reverse_string(char *s);
 char *_memcpy(char *dest, char *src, unsigned int n);
 char *convert_num(unsigned long int num, int base, int lowercase);
 
-#endif /*_PRINT_F_*/
+#endif
