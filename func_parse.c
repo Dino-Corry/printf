@@ -1,45 +1,65 @@
 #include "main.h"
 
 /**
- *_printf - Print a formatted string
- *@format: format string
- *Return: number of characters printed
+ * func_parse - function that checks specifier and
+ * and get the correct print function
+ * @c: character with specifier
+ * Description: the function loops through the structs array
+ * f_list[] to find a match between the specifier passed to _printf
+ * and the first element of the struct, and then the approriate
+ * printing function
+ * Return: the correct function
  */
-int _printf(const char *format, ...)
+int (*func_parse(char c))(va_list, param_func *)
 {
-	int (*print_function)(va_list, param_func *);
-	va_list list;
-	const char *pointer;
-	param_func flags = {0, 0, 0};
+	f_convert f_list[] = {
+	    {'i', print_integer},
+	    {'s', print_strings},
+	    {'c', print_chars},
+	    {'d', print_integer},
+	    {'u', print_unsigned_integer},
+	    {'x', print_hexa},
+	    {'X', print_heX},
+	    {'b', print_binary},
+	    {'o', print_octal},
+	    {'S', print_stringUpper},
+	    {'%', print_percentage},
+	    {'p', print_address},
+	    {'R', print_rot13}
+	};
+	int args_flags = sizeof(f_list);
 
-	register int count = 0;
+	register int i;
 
-	va_start(list, format);
-	if (!format || (format[0] == '%' && !format[1]))
-		return (-1);
-	if (format[0] == '%' && format[1] == ' ' && !format[2])
-		return (-1);
-	for (pointer = format; *pointer; pointer++)
+	for (i = 0; i < args_flags; i++)
+		if (f_list[i].type == c)
+		return (f_list[i].func);
+	return (NULL);
+}
+
+/**
+ * get_flags - finds the flag func
+ * @s: the format string
+ *@func: pointer to flag function
+ * Return: if flag was valid
+ */
+int get_flags(char s, param_func *func)
+{
+	int i = 0;
+
+	switch (s)
 	{
-		if (*pointer == '%')
-		{
-			pointer++;
-			if (*pointer == '%')
-			{
-				count += _putchar('%');
-				continue;
-			}
-			while (get_flags(*pointer, &flags))
-				pointer++;
-			print_function = func_parse(*pointer);
-			count += (print_function)
-						 ? print_function(list, &flags)
-						 : _printf("%%%c", *pointer);
-		}
-		else
-			count += _putchar(*pointer);
+	case '+':
+		i = func->plus_flag = 1;
+		break;
+	case ' ':
+		i = func->space_flag = 1;
+		break;
+	case '#':
+		i = func->hash_flag = 1;
+		break;
+
+
 	}
-	_putchar(-1);
-	va_end(list);
-	return (count);
+	return (i);
 }
