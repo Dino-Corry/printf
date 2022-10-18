@@ -1,40 +1,40 @@
-Custome _printf
+# Custome _printf
 
 _printf is a simple custom printf function that formats and prints data to the standard output.
 
-Description:
+## Description:
 _printf() functiion formats and prints data to the standard output according to the format specified.
 
 
 
-The function has the following conversion specifies:
+## The function has the following conversion specifies:
 
+'''bash
 %c - prints a character
-
 %d - prints a decimal integer
-
 %s - prints a string
-
 %i - prints an integer
+'''
 
 
 
-Installation
+## Installation
+
 you can clone this repository and use the function on your local machine.
-
+'''bash
 git clone https://github.com/dino-corry/printf.git
+'''
 
 
-Usage
+## Usage
 include the main.h header file on the function for using _printf().
 All the files are to be compiled on Ubuntu 14.04 LTS
 Compile your code with `gcc -Wall -Werror -Wextra -pedantic *.c`
 see example below:
 
-
+'''c
 #include <stdio.h>
 #include "main.h"
-
 
 int main(void)
 
@@ -48,10 +48,11 @@ int main(void)
     return 0;
     
 }
+'''
 
 
-License
-GNU General Public License v3.0
+# License
+'GNU General Public License v3.0'
 
 
 Copyright
