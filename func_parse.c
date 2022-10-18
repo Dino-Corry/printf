@@ -50,13 +50,13 @@ int get_flags(char s, param_func *func)
 	switch (s)
 	{
 	case '+':
-		i = func->plus_flag = 1;
+		i = func->plus_format = 1;
 		break;
 	case ' ':
-		i = func->space_flag = 1;
+		i = func->space_format = 1;
 		break;
 	case '#':
-		i = func->hash_flag = 1;
+		i = func->hash_format = 1;
 		break;
 
 
