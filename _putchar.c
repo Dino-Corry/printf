@@ -1,45 +1,41 @@
 #include "main.h"
 
 /**
- *_printf - Print a formatted string
- *@format: format string
- *Return: number of characters printed
+ * _putchar - writes the character c to stdout
+ * @c: The character to print
+ *
+ * Return: On success 1.
+ * On error, -1 is returned, and errno is set appropriately.
  */
-int _printf(const char *format, ...)
+int _putchar(char c)
 {
-	int (*print_function)(va_list, param_func *);
-	va_list list;
-	const char *pointer;
-	param_func flags = {0, 0, 0};
+	static char buf[1024];
+	static int pos;
 
-	register int count = 0;
-
-	va_start(list, format);
-	if (!format || (format[0] == '%' && !format[1]))
-		return (-1);
-	if (format[0] == '%' && format[1] == ' ' && !format[2])
-		return (-1);
-	for (pointer = format; *pointer; pointer++)
+	if (c == -1 || pos >= 1024)
 	{
-		if (*pointer == '%')
-		{
-			pointer++;
-			if (*pointer == '%')
-			{
-				count += _putchar('%');
-				continue;
-			}
-			while (get_flags(*pointer, &flags))
-				pointer++;
-			print_function = func_parse(*pointer);
-			count += (print_function)
-						 ? print_function(list, &flags)
-						 : _printf("%%%c", *pointer);
-		}
-		else
-			count += _putchar(*pointer);
+		write(1, buf, pos);
+		pos = 0;
 	}
-	_putchar(-1);
-	va_end(list);
+	if (c != -1)
+	{
+		buf[pos] = c;
+		pos++;
+	}
+	return (1);
+}
+
+/**
+ * _puts - prints a string with newline
+ * @str: the string to print
+ *
+ * Return: number of characters printed
+ */
+int _puts(char *str)
+{
+	register int count;
+
+	for (count = 0; str[count] != '\0'; count++)
+		_putchar(str[count]);
 	return (count);
 }
