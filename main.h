@@ -8,31 +8,31 @@
 #include <stdio.h>
 
 /**
- * struct param_format - It contains format to get when a format specifier is passed to _printf()
+ * struct format - It contains format to get when a f is passed
  * @plus_format: format for the '+' character
  * @space_format: format for the ' ' character
  * @hash_format: format for the '#' character
  * @hash_format: format for the '#' character
  */
 
- typedef struct format
- {
-     int plus_format;
-     int space_format;
-     int hash_format;
- } param_func;
+typedef struct format
+{
+int plus_format;
+int space_format;
+int hash_format;
+} param_func;
 
- /**
-  * struct func_convert - this gets structure for the symbols and function
-  * @type: operator symbols
-  * @func: the associated function
-  */
+/**
+ * struct func_convert - this gets structure for the symbols and function
+ * @type: operator symbols
+ * @func: the associated function
+ */
 
-  typedef struct func_convert
-  {
-      char type;
-      int (*func)(va_list list, param_func *func);
-  } f_convert;
+typedef struct func_convert
+{
+char type;
+int (*func)(va_list list, param_func *func);
+} f_convert;
 
 
   /* function prototyes */
