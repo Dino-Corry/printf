@@ -9,7 +9,7 @@ _printf() function formats and prints data to the standard output according to t
 
 The function has the following conversion specifies:
 
-%c - prints a character
+%c - print a characrer
 
 %d - prints a decimal integer
 
