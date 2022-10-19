@@ -3,7 +3,7 @@ Custome _printf
 _printf is a simple custom printf function that formats and prints data to the standard output.
 
 Description:
-_printf() functiion formats and prints data to the standard output according to the format specified.
+_printf() function formats and prints data to the standard output according to the format specified.
 
 
 
