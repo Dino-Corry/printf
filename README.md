@@ -20,7 +20,7 @@ The function has the following conversion specifies:
 
 
 Installation:
-you can clone this repository and use the function on your local machine.
+You can clone this repository and use the function on your local machine.
 
 git clone https://github.com/dino-corry/printf.git
 
