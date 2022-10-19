@@ -11,7 +11,7 @@ The function has the following conversion specifies:
 
 %c - prints a characrer
 
-%d - prints a decimal integer
+%d - print a decimal integer
 
 %s - prints a string
 
